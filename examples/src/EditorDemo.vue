@@ -20,7 +20,7 @@
         :data="data"
         :messages="lang === 'zh' ? zhMessage : {}"
         :initialized="onInitialized"
-        :tool-config="toolConfig"
+        :pluginConfig="toolConfig"
         disable-plugin="['toggle']"
         @changeData="editorChange"
       />
@@ -85,62 +85,31 @@ function uploadImage(files) {
   })
 }
 
-const toolConfig = ref({
+const toolConfig = {
   image: {
-    config: {
-      customUpload: {
-        uploadByCallback({ uploadSuccess }) {
-          uploadSuccess({ url: 'https://editorjs.io/_nuxt/api-image_2x.aa04c3de.jpg' })
-        }
-      },
-      uploader: {
-        uploadByFile(file) {
-          return uploadImage(file)
-          // return Promise.resolve({
-          //   success: true,
-          //   file: {
-          //     url: file
-          //   }
-          // })
-        }
-      },
-      endpoints: {
-        byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
-        byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
+    customUpload: {
+      uploadByCallback({ uploadSuccess }) {
+        uploadSuccess({ url: 'https://editorjs.io/_nuxt/api-image_2x.aa04c3de.jpg' })
       }
-    }
-  },
-  alignBlockTune: {
-    config: {
-      async changeTune() {
-        // const data = await editorInstance.value.save()
-        // editorChange({
-        //   json: data
+    },
+    uploader: {
+      uploadByFile(file) {
+        console.log('upload by file')
+        return uploadImage(file)
+        // return Promise.resolve({
+        //   success: true,
+        //   file: {
+        //     url: file
+        //   }
         // })
       }
-    }
-  },
-  link: {
-    config: {
-      getSelection(selection) {
-        // selection('https://baidu.com')
-        rangeSelection = selection
-      },
-      searchLinkData(search) {
-        const list = [
-          { name: '首页', href: 'https://www.cms3-site004890001.ifonelab.net/', description: 'https://www.cms3-site004890001.ifonelab.net/' },
-          { name: '首页1', href: 'https://www.cms3-site004890001.ifonelab.net/', description: 'https://www.cms3-site004890001.ifonelab.net/33333333333333333333333333333333333333333333' },
-          { name: '首页2', href: 'https://www.cms3-site004890001.ifonelab.net/', description: 'https://www.cms3-site004890001.ifonelab.net/' }
-        ]
-        const result = list.filter((item) => item.name.includes(search))
-        return Promise.resolve({
-          items: result,
-          success: true
-        })
-      }
+    },
+    endpoints: {
+      byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+      byUrl: 'http://localhost:8008/fetchUrl' // Your endpoint that provides uploading by Url
     }
   }
-})
+}
 
 const editorInstance = ref(null)
 
