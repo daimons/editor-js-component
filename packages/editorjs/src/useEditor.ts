@@ -56,6 +56,7 @@ export const useEditorjs = (props) => {
     if (config) {
       Object.assign(state, config)
     }
+    console.log(toolPlugins)
     state.editorjs = new EditorJS({
       holder: state.holder,
       autofocus: state.autofocus,

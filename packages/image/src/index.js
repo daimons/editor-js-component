@@ -144,6 +144,8 @@ export default class ImageTool {
     this.readOnly = readOnly
     this.block = block
 
+    console.log('image conig: ', config)
+
     /**
      * Tool's initial config
      */

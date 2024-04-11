@@ -21,6 +21,7 @@
         :messages="lang === 'zh' ? zhMessage : {}"
         :initialized="onInitialized"
         :tool-config="toolConfig"
+        disable-plugin="['toggle']"
         @changeData="editorChange"
       />
       <div class="editor-right">
@@ -36,7 +37,7 @@ import { ref } from 'vue'
 import {
   EditorJsVue,
   EditorJsParser
-} from 'editorjs-component-vue'
+} from '../../packages/editorjs-vue/src/index'
 
 import zhMessage from './lang/zh'
 import { blockData } from './data'

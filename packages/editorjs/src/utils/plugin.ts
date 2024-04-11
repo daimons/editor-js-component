@@ -296,7 +296,7 @@ export const getEditorPlugins = (customPlugin) => ({
       rel: 'nofollow',
       availableTargets: ['_blank', '_self'],
       availableRels: ['author', 'noreferrer'],
-      validate: false,
+      validate: false
     }
   },
 

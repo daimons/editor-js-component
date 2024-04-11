@@ -11,7 +11,7 @@ import {
   withDefaults
 } from 'vue'
 
-import { useEditorjs } from 'editor-js-component'
+import { useEditorjs } from '../../editorjs/src/index'
 import { EditorType } from './type'
 
 const props = withDefaults(defineProps<EditorType>(), {
