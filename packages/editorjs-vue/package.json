@@ -16,6 +16,5 @@
     "build": "vite build"
   },
   "dependencies": {
-    "editor-js-component": "^0.0.3"
   }
 }

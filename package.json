@@ -69,7 +69,6 @@
   },
   "dependencies": {
     "cross-env": "^7.0.3",
-    "editor-js-component": "file:packages/editor-js-component",
     "element-plus": "^2.4.2",
     "vite-plugin-css-injected-by-js": "^3.3.0",
     "vitepress-theme-demoblock": "^2.0.2",
